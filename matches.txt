@@ -1,0 +1,412 @@
+# spelling, pronunciation, score
+',, 0
+'D, IH D, 0
+'LL, AH L, 0
+'S, Z, 0
+
+A, AA, 0
+A, AE, 0
+A, AH, 0
+A, AO, 0
+A, AY, 1
+A, EH, 0
+A, EY, 0
+A, IH, 5
+A, IY, 100
+AA, AA, 0
+AG, IH JH, 1
+AGE, IH JH, 0
+AE, IY, 100
+AER, ER, 10
+AI, AH, 10
+AI, AY, 1
+AI, EH, 1
+AI, EY, 0
+AIGHT, EY T, 0
+ALF, AE F, 0
+ALK, AA K, 10
+ALK, AO K, 10
+ALLY, L IY, 10
+ALM, AA M, 10
+ALM, AH M, 10
+ALMED, AA M D, 10
+ALV, AE V, 0
+ALVE, AE V, 0
+AO, AW, 10
+AO, OW, 10
+AR, ER, 0
+ARR, ER, 0
+AU, AA, 1
+AU, AE, 1
+AU, AH, 1
+AU, AO, 0
+AU, AW, 10
+AU, OW, 10
+AUGH, AE F, 0
+AUGHT, AA T, 0
+AUGHT, AO T, 0
+AULK, AO K, 10
+AUR, ER, 10
+AW, AA, 0
+AW, AO, 0
+AY, AY, 0
+AY, EY, 0
+
+B, B, 0
+BB, B, 0
+BBL, B AH L, 0
+BBLY, B AH L IY, 10
+BL, B AH L, 0
+BORO, B ER R OW, 0
+BLY, B AH L IY, 10
+BT, T, 10
+BTLY, T AH L IY, 10
+BUIL, B IH L, 0
+BUSIN, B IH Z N, 0
+
+C, CH, 10
+C, K, 0
+C, S, 0
+C, SH, 10
+C, T S, 100
+CC, K, 0
+CCH, K, 10
+CH, HH, 10
+CH, CH, 0
+CH, SH, 0
+CI, CH, 10
+CIA, SH AH, 0
+CION, SH AH N, 0
+CIOUS, SH AH S, 0
+CIOUS, SH AH SH, 10
+CIOUS, SH IH S, 0
+CK, K, 0
+CKL, K AH L, 0
+CL, K AH L, 0
+COLM, K AH M, 10
+CQU, K, 10
+CQU, K W, 1
+CQUES, K, 10
+CU, K W, 10
+CZ, CH, 10
+
+D, D, 0
+D, JH, 10
+DD, D, 0
+DG, JH, 0
+DH, D, 10
+DJ, JH, 0
+DL, D AH L, 10
+DM, D AH M, 10
+D, T, 10
+
+E, AA, 10
+E, AH, 0
+E, EH, 0
+E, EY, 0
+E, IH, 1
+E, IY, 0
+E, , 1
+EA, IH, 5
+EA, IY, 0
+EAU, OW, 10
+EAU, Y UW, 0
+ED, T, 10
+EE, IY, 0
+EI, EH, 0
+EI, EY, 10
+EIGH, EY, 1
+EO, EH, 10
+ER, ER, 0
+ERR, ER, 1
+ET, EY, 10
+EU, OY, 1
+EU, UH, 1
+EU, UW, 0
+EUR, ER, 10
+EW, OW, 0
+EW, UW, 0
+EW, Y UW, 0
+EY, EH, 10
+EY, EY, 0
+
+F, F, 0
+FF, F, 0
+FFL, F AH L, 0
+FIRE, F AY ER, 0
+FL, F AH L, 0
+
+G, G, 0
+G, JH, 0
+G, ZH, 1
+GAUGE, G EY JH, 0
+GEOI, ZH W AA, 100
+GG, G, 0
+GG, JH, 0
+GHTH, T TH, 0
+GI, JH, 10
+GL, G AH L, 10
+GN, N, 1
+GN, G N Y, 10
+GU, G, 10
+GU, G W, 10
+GUE, G, 10
+
+H, , 10
+H, H, 0
+H, HH, 0
+H, JH, 0
+
+I, AE, 10
+I, AH, 0
+I, AY, 0
+I, IH, 0
+I, IY, 0
+IA, Y AH, 10
+IAL, AY L, 1
+IAGE, AH JH, 10
+IAGE, IH JH, 10
+IE, EH, 0
+IE, IY, 0
+IE, Y AH, 10
+IEU, UW, 10
+IEU, Y UW, 10
+IGH, AY, 0
+IGM, AY M, 10
+II, IY, 10
+INTER, IH N ER, 10
+ION, Y AH N, 0
+IOR, Y ER, 10
+IOR, Y AO R, 0
+IOUS, Y AH S, 0
+IR, AY ER, 100
+IR, ER, 0
+IRON, AY ER N, 0
+IRR, ER, 0
+IS, IY, 10
+ISLE, AY AH L, 10
+ISS, IH SH, 100
+IU, IY IH, 10
+IU, Y AH, 0
+IY, IY, 10
+
+J, HH, 10
+J, JH, 0
+J, Y, 10
+J, ZH, 10
+
+K, K, 0
+KL, K AH L, 0
+KN, N, 0
+KNOWL, N AA L, 0
+
+L, L, 0
+LAIS, L EY, 10
+LD, L, 10
+LE, AH L, 1
+LI, L Y, 10
+LL, L, 0
+LLIO, L Y AH, 1
+LLIAR, L Y ER, 1
+LOIS, L W AA, 10
+
+MB, M, 1
+MC, M AE K, 1
+MC, M AH K, 1
+MCC, M AH K, 1
+MCG, M AH G, 1
+MCK, M AH K, 1
+M, M, 0
+MM, M, 0
+MN, M, 0
+MONT, M AA N, 10
+MPT, M T, 0
+
+N, N,  0
+N, NG, 1
+NG, NG, 0
+NG, NG K, 10
+NGT, NG K T, 10
+NGUE, NG, 10
+NM, M, 1
+NM, N, 1
+NN, N, 0
+N'T, AH N T, 0
+
+O, AA, 0
+O, AH, 0
+O, AO, 0
+O, IH, 1
+O, OW, 0
+O, UH, 10
+O, UW, 0
+OA, OW, 0
+OA, AO, 1
+OE, OW, 0
+OE, UW, 0
+OI, AH, 1
+OI, OY, 0
+OLK, OW K, 1
+OLM, OW M, 1
+ONE, W AH N, 0
+OO, AH, 0
+OO, AO, 0
+OO, UH, 0
+OO, UW, 0
+OR, ER, 0
+ORR, ER, 0
+OT, OW, 10
+OU, AO, 0
+OU, AH, 0
+OU, AW, 0
+OU, OW, 0
+OU, UH, 0
+OU, UW, 0
+OU, Y UW, 10
+OUGH, AH F, 0
+OUGH, OW, 0
+OUGH, UW, 0
+OUGHT, AA T, 0
+OUGHT, AO T, 0
+OULD, UH D, 0
+OUR, AW ER, 10
+OUR, ER, 0
+OUS, IH S, 0
+OUS, UH S, 0
+OW, AW, 1
+OW, OW, 0
+OY, OY, 0
+
+P, P, 0
+PB, B, 10
+PH, F, 0
+PH, V, 10
+PH, P, 100
+PL, P AH L, 0
+PN, N, 0
+PP, P, 0
+PS, S, 0
+PT, T, 0
+
+Q, K, 10
+QU, K, 10
+QU, K W, 0
+QUE, K, 10
+
+R, R, 0
+RE, ER, 10
+RH, R, 0
+ROIX, R OY, 0
+RR, R, 0
+
+S, S, 0
+S, SH, 100
+S, Z, 0
+S, ZH, 10
+SC, S, 10
+SC, SH, 10
+SCH, SH, 1
+SCH, S K, 1
+SCION, SH AH N, 0
+SCIOUS, SH AH S, 0
+SIA, ZH AH, 1
+SIA, ZH Y AH, 10
+SIAL, SH AH L, 0
+SION, ZH AH N, 1
+SION, SH AH N, 1
+SIR, Z AY ER, 10
+SHIO, SH AH, 0
+SH, SH, 0
+SM, Z AH M, 1
+SS, S, 0
+SS, Z, 10
+SSIO, SH AH, 0
+SSU, SH UH, 10
+SSURE, SH ER, 1
+ST, S, 10
+STL, S AH L, 0
+SU, ZH AH W, 1
+SUR, ZH ER, 1
+SU, S W, 10
+SWO, S AO, 10
+SW, S, 10
+SZ, S, 10
+
+T, CH, 10
+T, D, 10
+T, T, 0
+TARY, T R IY, 10
+TCH, CH, 1
+TH, DH, 0
+TH, TH, 0
+THM, DH AH M, 10
+TI, SH IY, 1
+TIA, CH AH, 0
+TIA, SH AH, 0
+TIA, SH Y AH, 10
+TIENT, SH AH N T, 0
+TIO, SH AH, 0
+TION, CH AH N, 0
+TIOUS, CH AH S, 10
+TIOUS, SH AH S, 10
+TIONALLY, SH N AH L IY, 10
+TL, T AH L, 10
+TORY, T R IY, 1
+TOWARD, T UW AO R D, 0
+TT, T, 0
+TTL, T AH L, 10
+TU, CH W, 100
+TUA, CH AH W AH, 100
+TURE, CH ER, 0
+
+U, AH, 0 
+U, EH, 1
+U, IH, 1
+U, UH, 0
+U, UW, 0
+U, Y AH, 1
+U, Y UH, 0
+U, Y UW, 0
+UGH, Y UW, 1
+UI, UW, 1
+UO, UH, 1
+UOU, Y AH W AH, 10
+UR, ER, 0
+UR, Y ER, 1
+URR, ER, 0
+
+V, V, 0
+VIEW, V Y UW, 0
+VOIE, V W AA, 100
+VV, V, 0
+
+W, V, 10
+W, W, 0
+WH, HH, 0
+WOLF, W UH L F, 0
+WR, R, 0
+
+X, K S, 0
+X, G Z, 0
+X, Z, 0
+XC, K S, 0
+XION, K SH AH N, 0
+XS, K S, 0
+XU, G ZH UH, 0
+XU, K SH Y UW, 0
+XU, K SH UW, 0
+XUR, G ZH ER, 0
+
+Y, AH, 1
+Y, AY, 0
+Y, IH, 0
+Y, IY, 0
+Y, Y, 0
+YR, ER, 0
+
+Z, S, 10
+Z, T S, 0
+Z, Z, 0
+Z, ZH, 0
+ZZ, T S, 0
+ZZ, Z, 0

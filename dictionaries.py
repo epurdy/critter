@@ -85,3 +85,36 @@ def read_split_dict():
       d[parts[0].lower()] = parts[1:]
     f.close()
   return d
+
+def read_match_dict():
+  filenames = ['matches.txt']
+  d = {}
+  for filename in filenames:
+    f = open(filename)
+    for line in f:
+      line = line.strip()
+      if not line:
+        continue
+      if line[0] == '#':
+        continue
+      parts = line.split(',')
+      d[parts[0].lower(), tuple(parts[1].split())] = float(parts[2])
+      assert len(parts[0]) > 0
+    f.close()
+  return d
+
+def read_exceptions_dict():
+  filenames = ['exceptions.txt']
+  d = {}
+  for filename in filenames:
+    f = open(filename)
+    for line in f:
+      line = line.strip()
+      if not line:
+        continue
+      if line[0] == '#':
+        continue
+      d[line.lower()] = 1
+    f.close()
+  return d
+  
