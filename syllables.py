@@ -1,22 +1,12 @@
 import operator
+from phonology import Phonology
 from itertools import combinations, tee, izip
 
-vowel, consonant = range(2)
-
-def read_phone_vowels(phones_file):
-  "Reads which phones in the CMU phonetic dictionary are vowels."
-  vowels = set()
-  for line in phones_file.readlines():
-    phone, category = line.lower().split()
-    if category == 'vowel':
-      vowels.add(phone)
-  return vowels
-
-def parse_cmudict(dict_file, vowels):
+def parse_cmudict(dict_file, phonology):
   """Parses the CMU phonetic dictionary word file into a dict mapping words to
      phonetically spelled syllables."""
   words = {}
-  word_starts = set('\'') | set(chr(ord('a') + c) for c in range(26))
+  word_starts = {'\''} | {chr(ord('a') + c) for c in range(26)}
   for line in dict_file.readlines():
     line = line.lower()
     if not line[0] in word_starts:
@@ -24,32 +14,30 @@ def parse_cmudict(dict_file, vowels):
     if '(' in line:
       continue
     word, phones = line.strip().split(None, 1)
-    words[word] = build_syllables(phones.split(), vowels)
+    words[word] = build_syllables(phones.split(), phonology)
   return words
 
-def build_syllables(phones, vowels):
+def build_syllables(phones, phonology):
   "Splits phones with stress marks into conventional syllables."
+  plain_phones = [(ph[:-1] if ph[-1] in '012' else ph) for ph in phones]
+  nuclei = [i for i, ph in enumerate(phones) if ph[-1] in '012']
   syllables = []
-  # Syllable structure is onset(consonant) + nucleus(vowel) + coda.
-  # Assume the nucleus is always a stressed vowel, and prefer to bind
-  # at least one consonant in the nucleus over appending to the coda.
-  onset = []
-  coda = []
-  nucleus = None
-  for ph in phones:
-    if ph[-1] in '012':
-      if nucleus:
-        next_onset = ([coda.pop()] if coda else [])
-        syllables.append(tuple(onset + [nucleus] + coda))
-        onset = next_onset
-        coda = []
-      nucleus = ph[:-1]
-    elif nucleus:
-      coda.append(ph)
+  for i, j in pairwise([-1] + nuclei + [-1]):
+    if i == -1:
+      coda, next_onset = [], phones[:j]
+    elif j == -1:
+      coda, next_onset = phones[i + 1:], []
     else:
-      onset.append(ph)
-  if nucleus:
-    syllables.append(tuple(onset + [nucleus] + coda))
+      for k in range(i + 1, j):
+        candidate, follow = plain_phones[k:j], plain_phones[j:j + 2]
+        if phonology.is_legal_onset(candidate, follow):
+          coda, next_onset = phones[i + 1:k], phones[k:j]
+          break
+      else:
+        coda, next_onset = phones[i + 1:j], []
+    if i != -1:
+      syllables.append(tuple(onset + [plain_phones[i]] + coda))
+    onset = next_onset
   return tuple(syllables)
 
 def pairwise(iterable):
@@ -58,42 +46,45 @@ def pairwise(iterable):
   next(b, None)
   return izip(a, b)
 
-def spell_syllables(word, phonetic_syllables, vowels):
+def spell_syllables(word, phone_syllables, phonology):
   "Splits word into spelled syllables given phonetic splits."
-  num_syllables = len(phonetic_syllables)
+  num_syllables = len(phone_syllables)
   if num_syllables == 1: return (word,)
   candidates = []
   for splits in combinations(range(1, len(word)), num_syllables - 1):
     parts = [word[start:end] for start, end in
              pairwise((0,) + splits + (len(word),))]
-    scores = [score_spelling(part, syllable, vowels)
-              for part, syllable in zip(parts, phonetic_syllables)]
+    scores = [score_spelling(part, syllable, phonology)
+              for part, syllable in zip(parts, phone_syllables)]
     score = reduce(operator.mul, scores)
     if score > .1:
       candidates.append((score, tuple(parts)))
   if candidates:
     return max(candidates)[1]
 
-def score_spelling(letters, phones, vowels):
+def score_spelling(letters, phones, phonology):
   "Rates the plausibility of letters as a spelling for phones."
   odds = 1
   if len(letters) < len(phones):
     odds *= 0.1
-  if vowel_signature(letters, vowels) == vowel_signature(phones, vowels):
+  letter_sig = vowel_signature(letters, phonology)
+  phone_sig = vowel_signature(phones, phonology)
+  if letter_sig == phone_sig:
     odds *= 2.0
   else:
     odds *= .5
   return odds
 
-def vowel_signature(seq, vowels):
+def vowel_signature(seq, phonology):
   "Marks transitions and order of vowels and non-vowels."
+  vowel, consonant = range(2)
   signature = [-1]
   for elem in seq:
     if elem == 'er':
       if signature[-1] != vowel:
         signature.append(vowel)
         signature.append(consonant)
-    elif elem in vowels:
+    elif elem in 'aeiou' or elem in phonology.vowels:
       if signature[-1] != vowel:
         signature.append(vowel)
     else:
@@ -106,19 +97,18 @@ if __name__ == '__main__':
   import splitting
   moby_dict = dictionaries.read_moby_dict()
   
-
-  vowels = set('aeiou')
+  phonology = Phonology()
   with open('cmudict.0.7a.phones') as f:
-    vowels |= read_phone_vowels(f)
+    phonology.read(f)
   with open('cmudict.0.7a') as f:
-    phone_dict = parse_cmudict(f, vowels)
+    phone_dict = parse_cmudict(f, phonology)
 
   nhits, ntot = 0, 0
   for word, phones in phone_dict.iteritems():
     print word, phones
     if len(phones) == 0: continue
     if len(word) > 20: continue
-    syllables = spell_syllables(word, phones, vowels)
+    syllables = spell_syllables(word, phones, phonology)
     if word.lower() in moby_dict:
       print word, phones, syllables
       print moby_dict[word.lower()]
