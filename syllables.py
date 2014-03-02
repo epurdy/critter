@@ -63,7 +63,15 @@ def spell_syllables(word, phone_syllables, phonology):
     if score > .1:
       candidates.append((score, tuple(parts)))
   if candidates:
-    return max(candidates)[1]
+    syl = list(max(candidates)[1])
+    # Split up double letters.
+    for i in range(len(syl) - 1):
+      if len(syl[i]) > 2 and syl[i][-1] == syl[i][-2]:
+        syl[i], syl[i + 1] = syl[i][:-1], syl[i][-1] + syl[i + 1]
+    for i in range(1, len(syl)):
+      if len(syl[i]) > 2 and syl[i][0] == syl[i][1]:
+        syl[i - 1], syl[i] = syl[i - 1] + syl[i][0], syl[i][1:]
+    return tuple(syl)
 
 def score_spelling(letters, phones, phonology):
   "Rates the plausibility of letters as a spelling for phones."
