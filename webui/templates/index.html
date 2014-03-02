@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>crit·ter</title>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  <link rel=stylesheet type=text/css href="http://fonts.googleapis.com/css?family=Merriweather">
+</head>
+<body>
+  <h3 class=logo>crit·ter</h3>
+  <article class=snippet id=snippet>
+    <ul class=tools>
+      <li class="tool syllables-tool"><a id=syllables-tool href="javascript:;">syllables</a>
+      <li class=tool><a id=scansion-tool href="javascript:;">scansion</a>
+      <li class=tool><a id=puppies-tool href="javascript:;">puppies</a>
+    </ul>
+    <div id=text class=text contenteditable spellcheck=false>
+      In Xanadu did Kubla Khan<br>
+      A stately pleasure-dome decree:<br>
+      Where Alph, the sacred river, ran<br>
+      Through caverns measureless to man<br>
+      Down to a sunless sea.<br>
+      So twice five miles of fertile ground<br>
+      With walls and towers were girdled round;<br>
+      And there were gardens bright with sinuous rills,<br>
+      Where blossomed many an incense-bearing tree;<br>
+      And here were forests ancient as the hills,<br>
+      Enfolding sunny spots of greenery.<br>
+    </div>
+  </article>
+  <script src="{{ url_for('static', filename='critter.js') }}"></script>
+</body>
+</html>

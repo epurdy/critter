@@ -1,0 +1,63 @@
+body {
+  color: #000;
+  background: #fff;
+  font: normal 400 17px/28px "Merriweather";
+  margin: 0;
+  padding: 5px 20px;
+}
+
+h3 {
+  font-size: 150%;
+}
+
+.logo {
+  color: #999;
+}
+
+.snippet {
+  border: 1px solid #efefef;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .3);
+  max-width: 800px;
+}
+
+.tools {
+  list-style-type: none;
+  background: #eee;
+  padding: 4px 8px;
+  margin: 0;
+  color: #333;
+  overflow: hidden;
+}
+
+.tool {
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 80%;
+  padding: 0 4px;
+  margin: 0 4px;
+}
+
+.tool a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.syllables-mode .syllables-tool {
+  background: #c9c;
+  color: #fff;
+}
+
+.syllables-mode .syllable {
+  background: #eae;
+  outline: 1px solid #fff;
+}
+
+.text {
+  padding: 10px 20px;
+}
+
+.text:focus {
+  outline: none;
+}
