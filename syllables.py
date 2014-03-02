@@ -30,7 +30,10 @@ def build_syllables(phones, phonology):
     else:
       for k in range(i + 1, j):
         candidate, follow = plain_phones[k:j], plain_phones[j:j + 2]
-        if phonology.is_legal_onset(candidate, follow):
+        unreduced_short_vowel = (phones[k - 1][-1] in '12' and
+            plain_phones[k - 1] in phonology.short_vowels)
+        if (phonology.is_legal_onset(candidate, follow) and
+            not unreduced_short_vowel):
           coda, next_onset = phones[i + 1:k], phones[k:j]
           break
       else:
@@ -102,6 +105,9 @@ if __name__ == '__main__':
     phonology.read(f)
   with open('cmudict.0.7a') as f:
     phone_dict = parse_cmudict(f, phonology)
+
+  assert phone_dict['comma'] == (('k', 'aa', 'm'), ('ah',))
+  assert phone_dict['command'] == (('k', 'ah'), ('m', 'ae', 'n', 'd'))
 
   nhits, ntot = 0, 0
   for word, phones in phone_dict.iteritems():

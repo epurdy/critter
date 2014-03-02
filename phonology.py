@@ -9,6 +9,7 @@ class Phonology(object):
     self.fricatives = set()
     self.nasals = set()
     self.voiceless = {'f', 's', 'th', 'sh', 'hh', 'v', 'p', 't', 'k'}
+    self.short_vowels = {'ih', 'uh', 'eh', 'ah', 'ae', 'aa'}
     self._onsets = set()
     self._provisional_onsets = set()
 
