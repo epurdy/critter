@@ -32,7 +32,7 @@ class Phonology(object):
 
   def is_legal_onset(self, seq, follow):
     if not self._onsets:
-      self._onsets |= {(c,) for c in self.consonants - {'ng'}}
+      self._onsets |= {(c,) for c in (self.consonants | {'y', 'w'}) - {'ng'}}
       self._onsets |= {(s, a) for s in self.stops
                               for a in self.approximants - {'y'}}
       self._onsets |= {(f, a) for f in self.fricatives & self.voiceless
@@ -47,8 +47,7 @@ class Phonology(object):
       self._provisional_onsets |= {(c, 'y') for c in self.consonants}
     return ((tuple(seq) in self._onsets) or
             (tuple(seq) in self._provisional_onsets and
-             (follow[:1] == ('uw',) or
-              follow[:2] == ('uh', 'r'))))
+             (follow[:1] == ['uw'] or follow[:2] == ['uh', 'r'])))
 
 if __name__ == '__main__':
   ph = Phonology()

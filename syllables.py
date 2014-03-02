@@ -64,12 +64,14 @@ def spell_syllables(word, phone_syllables, phonology):
       candidates.append((score, tuple(parts)))
   if candidates:
     syl = list(max(candidates)[1])
-    # Split up double letters.
+    # Split up double consonants.
     for i in range(len(syl) - 1):
-      if len(syl[i]) > 2 and syl[i][-1] == syl[i][-2]:
+      if (len(syl[i]) > 2 and syl[i][-1] == syl[i][-2] and
+          syl[i][-1] not in 'aeiou'):
         syl[i], syl[i + 1] = syl[i][:-1], syl[i][-1] + syl[i + 1]
     for i in range(1, len(syl)):
-      if len(syl[i]) > 2 and syl[i][0] == syl[i][1]:
+      if (len(syl[i]) > 2 and syl[i][0] == syl[i][1] and
+          syl[i][0] not in 'aeiou'):
         syl[i - 1], syl[i] = syl[i - 1] + syl[i][0], syl[i][1:]
     return tuple(syl)
 
@@ -84,7 +86,17 @@ def score_spelling(letters, phones, phonology):
     odds *= 2.0
   else:
     odds *= .5
+  if sound_mismatch(letters, phones):
+    odds *= 0.01
   return odds
+
+sounds = {'p': 'p', 't': 't', 'g': 'g', 'n': 'n', 'l': 'l', 'm': 'm'}
+def sound_mismatch(letters, phones):
+  "Returns true for obvious sound disagreements between letters and phones."
+  letter_bag = set(letters)
+  phone_bag = set(phones)
+  return any(phone in phone_bag and not letter in letter_bag
+             for phone, letter in sounds.iteritems())
 
 def vowel_signature(seq, phonology):
   "Marks transitions and order of vowels and non-vowels."
@@ -116,17 +128,22 @@ if __name__ == '__main__':
 
   assert phone_dict['comma'] == (('k', 'aa', 'm'), ('ah',))
   assert phone_dict['command'] == (('k', 'ah'), ('m', 'ae', 'n', 'd'))
+  assert phone_dict['procurer'] == (('p', 'r', 'ow'),
+                                    ('k', 'y', 'uh', 'r'), ('er',))
 
   nhits, ntot = 0, 0
   for word, phones in phone_dict.iteritems():
-    print word, phones
+    #print word, phones
     if len(phones) == 0: continue
     if len(word) > 20: continue
     syllables = spell_syllables(word, phones, phonology)
     if word.lower() in moby_dict:
-      print word, phones, syllables
-      print moby_dict[word.lower()]
+      #print word, phones, syllables
+      #print moby_dict[word.lower()]
       if syllables == tuple(moby_dict[word.lower()]):
         nhits += 1
+      else:
+        print word, phones, syllables
+        print moby_dict[word.lower()]
       ntot += 1
       print nhits, '/', ntot, float(nhits) / ntot
